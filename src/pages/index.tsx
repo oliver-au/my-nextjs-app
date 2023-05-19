@@ -24,7 +24,6 @@ export async function getStaticProps() {
     dateStyle: "long",
     timeStyle: "long",
   }).format(buildDate);
-  const enviroment = process.env.ENV;
-
+  const enviroment = ''
   return { props: { formattedDate, enviroment } };
 }
