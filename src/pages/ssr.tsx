@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 type SSRProps = {
   formattedDate: string;
 }
@@ -10,7 +12,7 @@ export default function SSR({ formattedDate }: SSRProps) {
         This page is server-side rendered. It was rendered on {formattedDate}.
       </p>
       <p>
-        <a href="/">View a static page.</a>
+        <Link href="/">View a static page.</Link>
       </p>
     </>
   );

@@ -1,14 +1,18 @@
+import Link from "next/link";
+
 type HomeProps = {
   formattedDate: string;
+  enviroment: string;
 }
 
-export default function Home({ formattedDate }: HomeProps) {
+export default function Home({ formattedDate, enviroment }: HomeProps) {
   return (
     <>
       <h1>Static page</h1>
+      <p>Env: {enviroment}</p>
       <p>This page is static. It was built on {formattedDate}.</p>
       <p>
-        <a href="/ssr">View a server-side rendered page.</a>
+        <Link href="/ssr">View a server-side rendered page.</Link>
       </p>
     </>
   );
@@ -20,6 +24,7 @@ export async function getStaticProps() {
     dateStyle: "long",
     timeStyle: "long",
   }).format(buildDate);
+  const enviroment = process.env.ENV;
 
-  return { props: { formattedDate } };
+  return { props: { formattedDate, enviroment } };
 }
